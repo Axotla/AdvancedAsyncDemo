@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MyApp.ViewModels;assembly=MyApp"
+             x:Class="MyApp.MainPage"
+             x:DataType="viewModels:MainPageViewModel">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+        <Button Text="Execute sync" Command="{Binding DownloadCommand}"  Grid.Row="0"/>
+        <Button Text="Execute async" Command="{Binding DownloadAsyncCommand}"  Grid.Row="1"/>
+        <Button Text="Execute parallel" Command="{Binding DownloadParallelCommand}" Grid.Row="2"/>
+        <Button Text="Execute parallel async" Command="{Binding DownloadParallelAsyncCommand}" Grid.Row="3"/>
+        <Button Text="Cancel" Command="{Binding Cancel}" Grid.Row="4"/>
+        <ProgressBar Progress="{Binding DownloadProgress}" Grid.Row="5" />
+        <Editor IsEnabled="True" Text="{Binding ReportBuilder.Report, Mode=OneWay}" Grid.Row="6" />
+    </Grid>
+
+
+</ContentPage>
